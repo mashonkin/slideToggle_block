@@ -1,0 +1,16 @@
+{*пример 1*}
+<div data-show-block="siblings"{if $active} class="active"{/if}>заголовок 1</div>
+<div class="filter_param"{if !$active} style="display: none"{/if}>
+    блок 1
+</div>
+
+{*пример 2*}
+<div class="name">
+    <a {if $category_select}class="category_selected"{/if}  href="{$c.url}">{$c.name}</a>
+    {if $c.childs}<span data-show-block="parent_siblings" {if $category_select}class="active"{/if}></span>{/if}
+</div>
+{if $c.childs}
+    <div class="childs_block" {if !$category_select}style="display: none;"{/if}>
+        {categories_print categories=$c.childs}
+    </div>
+{/if}
